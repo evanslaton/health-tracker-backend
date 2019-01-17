@@ -11,8 +11,6 @@ public class Exercise {
     public String title;
     public int quantity;
     public String description;
-
-    @Temporal(TemporalType.TIMESTAMP)
     public String timestamp;
 
     // Default constructor
