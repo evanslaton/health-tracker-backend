@@ -2,14 +2,12 @@ package com.evanslaton.healthtrackerbackend.exercise;
 
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@Controller
+@RestController
 public class ExerciseController {
 
     @Autowired
@@ -24,11 +22,11 @@ public class ExerciseController {
     }
 
     @PostMapping(value="/exercises")
-    public void addExercise(@RequestParam String title,
+    public Exercise addExercise(@RequestParam String title,
                        @RequestParam String quantity,
                        @RequestParam String description) {
 
         Exercise newExercise = new Exercise(title, Integer.parseInt(quantity), description);
-        exerciseRepo.save(newExercise);
+        return exerciseRepo.save(newExercise);
     }
 }
