@@ -25,10 +25,10 @@ public class ExerciseController {
 
     @PostMapping(value="/exercises")
     public void addExercise(@RequestParam String title,
-                       @RequestParam int quantity,
+                       @RequestParam String quantity,
                        @RequestParam String description) {
 
-        Exercise newExercise = new Exercise(title, quantity, description);
+        Exercise newExercise = new Exercise(title, Integer.parseInt(quantity), description);
         exerciseRepo.save(newExercise);
     }
 }
