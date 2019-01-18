@@ -24,9 +24,11 @@ public class ExerciseController {
     @PostMapping(value="/exercises")
     public Exercise addExercise(@RequestParam String title,
                        @RequestParam String quantity,
-                       @RequestParam String description) {
+                       @RequestParam String description,
+                       @RequestParam String latitude,
+                       @RequestParam String longitude) {
 
-        Exercise newExercise = new Exercise(title, Integer.parseInt(quantity), description);
+        Exercise newExercise = new Exercise(title, Integer.parseInt(quantity), description, latitude, longitude);
         return exerciseRepo.save(newExercise);
     }
 }
