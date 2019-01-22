@@ -20,16 +20,16 @@ public class ApplicationUser implements UserDetails {
 
     // Database Relationship(s)
     @OneToMany(mappedBy="applicationUser", fetch=FetchType.EAGER)
-    public List<Exercise> messages;
+    public List<Exercise> exercises;
 
     // Default constructor
     public ApplicationUser() {}
 
     // Constructor
-    public ApplicationUser(String username, String password, String phoneNumber) {
+    public ApplicationUser(String username, String password) {
         this.username = username;
         this.password = password;
-        this.messages = new ArrayList<Exercise>();
+        this.exercises = new ArrayList<Exercise>();
     }
 
     @Override
