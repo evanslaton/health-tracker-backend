@@ -1,5 +1,7 @@
 package com.evanslaton.healthtrackerbackend.exercise;
 
+import com.evanslaton.healthtrackerbackend.applicationuser.ApplicationUser;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,6 +16,10 @@ public class Exercise {
     public String timestamp;
     public String latitude;
     public String longitude;
+
+    // Database Relationship(s)
+    @ManyToOne
+    public ApplicationUser applicationUser;
 
     // Default constructor
     public Exercise() {};
